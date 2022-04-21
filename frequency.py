@@ -2,12 +2,16 @@ class FrequencyEcoder:
     
     def __init__(self,data):
         
+        """These data here has to be cleaned without those special symbols."""
+        
         self.data=data
     
 
         
         
-   ########### Computer frequency in each row #######     
+   """This function has task of computing the frequency of the word in each row of the file and returns the row as dictionary of word as key and 
+   frequency as value.
+   """    
         
     def frequency_computer(self,string):
 
@@ -25,7 +29,9 @@ class FrequencyEcoder:
             dict_freq[freq_list[j]]=string.count(freq_list[j])
         return dict_freq
     
-    ###### convert row into dictionary #######
+    """This function is for changing each row of the file into dictionary words as keys and their repetitions as values. It will be usefully to
+    the time of replacing the word by its total frequency in all file.
+    """
     
     def row_to_dict(self):
         inputs=self.data
@@ -39,7 +45,10 @@ class FrequencyEcoder:
         return inputs
     
     
-####### Convert row into the list #######
+"""Convert each row of the file into the list of words 
+   --------------------------------------------------------
+    This function has objective of transforming the row of file into the list of words in each row
+      """
         
     def conv(self,stock_str):
         
@@ -55,12 +64,20 @@ class FrequencyEcoder:
 
         return stock_str[:n]
     
-    ####Combination of two dictionaries to get one with updated values
+    """Combination of two dictionaries to get one with updated values, here we take two rows that 
+   contains dictionaris and put them together to get one dictionary of updated keys and value
+   ----------
+   This function will be useful to the time of finding frequency of each word in a whole document
+   """
     
     def dict_combine_2(self,dic1,dic2):    
         return dict(sorted({k: dic1.get(k, 0) + dic2.get(k, 0) for k in set(dic1) | set(dic2)}.items()))
     
-    ##### ENCODING DOCUMENT ######
+    """ENCODING DOCUMENT 
+    ---------------------
+      This function is going to use that function which combine two dictionaries and use it to get a frequency of each word in full document.
+               """
+    
     def final_encoder(self):
         dict_store=self.row_to_dict()
         
@@ -73,7 +90,10 @@ class FrequencyEcoder:
     
     
     
-    ####### Transform the csv file###########
+    """Transform the  file
+    -----------------------------
+    This function is tasked to use created functions and produce encoded file using frequencies of words in a whole file.
+    """
     
     def transform(self):
         
