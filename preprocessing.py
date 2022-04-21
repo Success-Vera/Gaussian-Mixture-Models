@@ -421,5 +421,5 @@ def forward(df):
     # print("new row",new_row)
   
   df = new_row
-  return df
+  return " ".join(df)
 
