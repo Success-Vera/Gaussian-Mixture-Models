@@ -42,21 +42,27 @@ class FrequencyEcoder:
 ####### Convert row into the list #######
         
     def conv(self,stock_str):
+        
         n=int(input('Enter the number of rows modify: '))
+        
+        
         for i in range(n):
-    #         print(stock_str[i])
+            print(stock_str[i])
             liste=stock_str[i].split()
+            
     #         st=','.join([item  for item in liste])
             stock_str[i]=liste
 
         return stock_str[:n]
+    
+    ####Combination of two dictionaries to get one with updated values
     
     def dict_combine_2(self,dic1,dic2):    
         return dict(sorted({k: dic1.get(k, 0) + dic2.get(k, 0) for k in set(dic1) | set(dic2)}.items()))
     
     ##### ENCODING DOCUMENT ######
     def final_encoder(self):
-        dict_store=self.row_to_dict_to_dict()
+        dict_store=self.row_to_dict()
         
         start=dict_store[0]
 
@@ -71,7 +77,9 @@ class FrequencyEcoder:
     
     def transform(self):
         
-        temp = self.conv(new_input)
+        
+        inputs=self.row_to_dict()
+        temp = self.conv(self.data)
         
         ff=self.final_encoder(inputs[:5])
         
@@ -85,4 +93,3 @@ class FrequencyEcoder:
             new_df[idx] = final
         
         return new_df
-    
