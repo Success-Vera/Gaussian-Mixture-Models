@@ -97,7 +97,7 @@ class FrequencyEcoder:
   
   """Transform the  file
   -----------------------------
-  This function is tasked to use created functions and produce encoded file using frequencies of words in a whole file.
+  This function is tasked to use a created functions, and produces the encoded file using the frequencies of words in a whole file.
   """
   
   def transform(self):
